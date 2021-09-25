@@ -5,4 +5,4 @@ The first assigments from both my Data Structures and Paradigms in C++ classes b
 My goals for repeating these programs are:
 1. Better understanding of the try/catch structure in C++
 2. Practice with file reading, including passing the open file as handle
-3. Practice with a github repository: Does it make sense for instance to include the two new programs along with their originals? Are repositories intended for use more like directories or programs? How does version control and maintaining a record of changes work?
+3. Practice with a github repository: \nDoes it make sense for instance to include the two new programs along with their originals? \nAre repositories intended for use more like directories or programs? \nHow does version control and maintaining a record of changes work?
