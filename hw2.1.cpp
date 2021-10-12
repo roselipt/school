@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void printArray(int length, char* array) {
+void printArray(int length, char *array) {
     for (int i = 0; i < length ; i++) {
         cout << array[i] << "\n";
     }
@@ -18,7 +18,7 @@ void strSwap(char* &s1, char* &s2) {
 
 int main(int argc, char* argv[]) {
 
-    printArray(argc, argv);
+    printArray(argc, &argv);
     
 
 }
