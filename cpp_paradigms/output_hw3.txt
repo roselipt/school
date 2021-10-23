@@ -1,0 +1,7 @@
+
+
+Size of map: 998
+Count of phone# with area code 347: 380
+The (ID)s with the given phone #: 79101  82786  
+Size of the vector with all (212) numbers: 216
+Size of the vector with unique (212) numbers: 213

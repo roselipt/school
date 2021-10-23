@@ -1,0 +1,24 @@
+Explanation for HW 3.1
+Tom Budny
+
+I wasn't able to complete the universal function implementation in time. I had hoped
+as I went along I would gain experience with the structures and figure it out
+but it took me too long.
+
+Still I tried to respect the use of the structures as best I could. And the data illustrates
+many things we'd expect from these data structures. Like...
+
+Populating a vector is fastest.
+A list is not all that far behind. I suspect this about keeping an end pointer. Without that it'd be longer.
+Both sets substantially longer -- order takes longer than hash table.
+
+Copying always to the front was a request I could only make sense of with a list. This was consistently quicker
+in runs though only a little. This makes sense to me assuming the implementation maintains pointers at each end.
+
+Copying always to the front of a vector would be enornously costly. I didn't understand a simple way to do it with
+a member function. Nor did I wrap my head around the idea for the sets.
+
+The differences in lookups become striking fast! List taking 3X the time of vector.
+Both of the sets are an order of magnitude faster.
+The unordered set is fastest of all and kind of shockingly so.
+I've got to learn more about hash tables.
