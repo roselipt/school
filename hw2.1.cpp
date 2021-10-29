@@ -16,7 +16,7 @@ void strSwap(char* &s1, char* &s2) {
 
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char& argv[]) {
 
     printArray(argc, &argv);
     
