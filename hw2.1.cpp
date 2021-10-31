@@ -12,13 +12,14 @@ void printArray(int length, char *array) {
     }
 }
 
-void strSwap(char* &s1, char* &s2) {
+void strSwap(char* s1, char* s2) {
 
 }
 
-int main(int argc, char& argv[]) {
-
-    printArray(argc, &argv);
+int main(int argc, char *argv[]) {
+//  int main(int argc, char **argv) {  /* Alternate form */
+    
+    printArray(argc, argv[0]);
     
 
 }
