@@ -6,9 +6,9 @@
 
 using namespace std;
 
-void printArray(int length, char *array) {
+void printArray(int length, char *input) {
     for (int i = 0; i < length ; i++) {
-        cout << array[i] << "\n";
+        cout << input[i] << "\n";
     }
 }
 
@@ -19,7 +19,9 @@ void strSwap(char* s1, char* s2) {
 int main(int argc, char *argv[]) {
 //  int main(int argc, char **argv) {  /* Alternate form */
     
-    printArray(argc, argv[0]);
+    char* ptr;
+    ptr = argv;
+    printArray(argc, argv);
 
     for (int i = 0; i < argc; i++) {
         cout << argv[i] << "\n";
