@@ -6,9 +6,11 @@
 
 using namespace std;
 
-void printArray(int length, char *input) {
+//  The key to understand here that I kept missing is that char* a[] is a pointer to a pointer!
+//  
+void printArray(int length, char* a[]) {
     for (int i = 0; i < length ; i++) {
-        cout << input[i] << "\n";
+        cout << a[i] << "\n";
     }
 }
 
@@ -20,14 +22,30 @@ int main(int argc, char *argv[]) {
 //  int main(int argc, char **argv) {  /* Alternate form */
     
     char* ptr;
-    ptr = argv;
+    ptr = argv[0];
+    char** pptr;  //  char pointer to pointer
+    pptr = argv;
+    cout << "Passed as argv: \n" ;
+    printArray(argc, argv);
+    cout << "And here again using pptr, a pointer to a pointer: \n" ;
+    printArray(argc, pptr);
+
+    cout << "And now swapping the second two: \n" ;
+    ptr = argv[1];
+    argv[1] = argv[2];
+    argv[2] = ptr; 
     printArray(argc, argv);
 
+    cout << "And for double plus good measure, once more accessed by pptr: \n" ;
+    printArray(argc, pptr);
+/*  Delete later.
+    This was just making sure it worked before I could pass it as reference.
     for (int i = 0; i < argc; i++) {
         cout << argv[i] << "\n";
     }    
+*/
 
-}
+}  // close main
 
 /*
 This exercise is all about procedural programming (lec3), and specifically the topics of pointers, arrays, and
