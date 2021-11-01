@@ -14,9 +14,40 @@ void printArray(int length, char* a[]) {
     }
 }
 
-void strSwap(char* s1, char* s2) {
+/*void strSwap(char* s1, char* s2) {
 
+}*/
+
+int strLen(const char* s); 
+/* returns the length of s (Note: you actually don't need to use this
+function in hw2_1, but you will need it in hw2_2)
+*/
+
+int strCmp(const char* s1, const char* s2)
+/* returns -1 if s1 should appear before s2,
+0 if s1 and s2 are exactly the same,
+1 if s1 appears after s2. 
+All in alphabetic order according to the ASCII table
+*/
+{
+    if (*s1 < *s2) return -1;
+    else if (*s1 == *s2) return 0;
+    else return 1;
 }
+void strSwap(char* &s1, char* &s2) {
+/* allows two pointers to char* to be swapped, i.e.
+afterwards, s1 will point to what s2 was pointing at and vice versa
+*/
+    char* p; // temporary pointer for swap
+    p = s1;
+    s1 = s2;
+    s2 = p;
+}
+
+void strBubbleSort(char* arrStr[], int n);
+/* uses bubble sort to put all strings in arrStr
+in an alphabetic order. The array has size of n and will be modified as the result of this function
+*/
 
 int main(int argc, char *argv[]) {
 //  int main(int argc, char **argv) {  /* Alternate form */
@@ -36,8 +67,12 @@ int main(int argc, char *argv[]) {
     argv[2] = ptr; 
     printArray(argc, argv);
 
-    cout << "And for double plus good measure, once more accessed by pptr: \n" ;
+    cout << "And for double plus good measure, once more accessed by pptr, after another swap: \n" ;
+    strSwap(argv[3], argv[4]);
     printArray(argc, pptr);
+
+    cout << "And comparing s1 and s2 with strComp yields: " << strCmp(argv[1], argv[2]) 
+        << " and the line also show s1 and s2 " << argv[1] << " and " << argv[2] << "\n";
 /*  Delete later.
     This was just making sure it worked before I could pass it as reference.
     for (int i = 0; i < argc; i++) {
