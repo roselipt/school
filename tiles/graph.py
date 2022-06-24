@@ -1,4 +1,4 @@
-#  Node class from textbook
+#  Node class from textbook, 
 
 class Node(object):
     def __init__(self, name):
@@ -22,7 +22,7 @@ class Edge(object):
         return self.src.getName() + '->' + self.dest.getName()
 
 class WeightedEdge(Edge):
-    def __init__(self, src, dest, wight = 1.0):
+    def __init__(self, src, dest, weight = 1.0):
         """Assumes src and dest are nodes, weight a float"""
         self.src = src
         self.dest = dest
@@ -51,6 +51,14 @@ class Digraph(object):
             raise ValueError('Node not in graph')
         else:
             self.edges[src].append(dest)
+    def addWeightedEdge(self, weightedEdge):
+        src = weightedEdge.getSource()
+        dest = weightedEdge.getDestination()
+        weight = weightedEdge.getWeight()
+        if not(src in self.nodes and dest in self.nodes):
+            raise ValueError('Node not in graph')
+        else:
+            self.edges[src].append((dest, weight))
     def childrenOf(self, node):
         return self.edges[node]
     def hasNode(self, node):
@@ -58,13 +66,15 @@ class Digraph(object):
     def __str__(self):
         result = ''
         for src in self.nodes:
-            for dest in self.edges[src]:
-                result = result + src.getName() + '->' + dest.getName() + '\n'
+            for e in self.edges[src]:
+                dest, weight = e
+                result = result + src.getName() + ' -> (' + str(weight) + ') ' + dest.getName() + '\n'
         return result[:-1]
 
 class Graph(Digraph):
     """Implementation of a graph as subclass of Digraph, from textbook"""
-    def addEdge(self, edge):
-        Digraph.addEdge(self, edge)
-        rev = Edge(edge.getDestination(), edge.getSource())
-        Digraph.addEdge(self, rev)
+    def addWeightedEdge(self, weightedEdge):
+        Digraph.addWeightedEdge(self, weightedEdge)
+        rev = WeightedEdge(weightedEdge.getDestination(), weightedEdge.getSource(), weightedEdge.getWeight())
+        Digraph.addWeightedEdge(self, rev)
+    
