@@ -24,10 +24,18 @@ problem = [ ('S', 'A', 3), ('S', 'D', 4), ('A', 'D', 5), ('A', 'B', 4), ('D', 'E
 
 prob_graph = Graph()
 
+# Add nodes
+for node in ['S', 'A', 'B', 'C', 'D', 'E', 'F', 'G']:
+    prob_graph.addNode(Node(node))
+print(len(prob_graph.edges))
+
 for e in problem:
     src, dest, w = e
-    src = Node(src)
-    dest = Node(dest)
+    # THIS METHOD IS MAKING A NEW NODE FOR EVERY OCCURRENCE OF A LETTER
+    print('Adding', e, 'to the graph.')
+
+    src = prob_graph.getNode(src)
+    dest = prob_graph.getNode(dest)
     if not prob_graph.hasNode(src):
         prob_graph.addNode(src)
     if not prob_graph.hasNode(dest):
@@ -39,5 +47,11 @@ for e in problem:
     
 print('Problem input:', problem)
 print(prob_graph, '\n')
+
+
+# for node in prob_graph.nodes:
+#     print(str(node))
+# print(len(prob_graph.nodes))
+#print(prob_graph.edges[prob_graph.nodes[0]])
 
 print('And if my grandmother had wheels she"d be a wagon.')
